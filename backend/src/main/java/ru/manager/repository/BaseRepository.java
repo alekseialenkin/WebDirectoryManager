@@ -27,7 +27,7 @@ public interface BaseRepository<T> extends JpaRepository<T, Integer> {
     Optional<T> getByName(String name);
 
     default T getByNameExists(String name) {
-        return getByName(name).orElseThrow(()-> new NotFoundException("Profession with name " + name + " not found."));
+        return getByName(name).orElseThrow(()-> new NotFoundException("Entity with name " + name + " not found."));
     }
     default T getExisted(int id) {
         return findById(id).orElseThrow(() -> new NotFoundException("Entity with id=" + id + " not found"));

@@ -62,10 +62,10 @@ public class EmployeeController {
         repository.deleteExisted(id);
     }
 
-    @PatchMapping("/{id}")
+    @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void update(@Valid @RequestBody Employee employee) {
+    public void update(@Valid @RequestBody EmployeeTo employee) {
         log.info("update {}", employee);
-        repository.save(employee);
+        service.save(To.get(employee), employee.getProfession(), employee.getDepartment());
     }
 }

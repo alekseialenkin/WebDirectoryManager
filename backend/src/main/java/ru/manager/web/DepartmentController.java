@@ -57,7 +57,7 @@ public class DepartmentController {
         repository.deleteExisted(id);
     }
 
-    @PatchMapping("/{id}")
+    @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void update(@Valid @RequestBody ParentDepartment department) {
         log.info("update {}", department);
